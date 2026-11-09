@@ -1,0 +1,45 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/img/logo.png";
+import Icon from "./Icon.astro";
+import Button from "./Button.astro";
+import FutureLink from "./FutureLink.astro";
+import { contacts, nav } from "../data/clinic";
+---
+<header class="site-header" data-rec="R-103">
+  <div class="container site-header__row">
+    <a class="site-header__logo" href="#top" aria-label="Doctor Armstrong — на початок сторінки">
+      <Image src={logo} alt="Doctor Armstrong" width={115} height={44} densities={[1, 2]} loading="eager" format="webp" />
+    </a>
+    <nav class="site-nav" aria-label="Розділи сторінки">
+      <ul>
+        {nav.map((n) => <li><a href={n.href}>{n.label}</a></li>)}
+      </ul>
+    </nav>
+    <div class="site-header__actions">
+      <FutureLink class="site-header__cabinet" rec="R-103">Кабінет</FutureLink>
+      <a class="site-header__phone" href={contacts.phoneHref} data-rec="R-304">{contacts.phoneText}</a>
+      <Button href="#zapys" size="m" class="site-header__cta">Записатися</Button>
+      <a class="icon-btn site-header__call" href={contacts.phoneHref} aria-label={`Подзвонити ${contacts.phoneText}`}><Icon name="phone" size={22} /></a>
+      <button class="icon-btn site-header__burger" type="button" aria-haspopup="dialog" aria-controls="menu" aria-expanded="false" aria-label="Відкрити меню"><Icon name="menu" size={24} /></button>
+    </div>
+  </div>
+  <dialog class="menu" id="menu" aria-label="Меню">
+    <div class="menu__top">
+      <a class="site-header__logo" href="#top" data-close aria-label="Doctor Armstrong — на початок сторінки">
+        <Image src={logo} alt="Doctor Armstrong" width={115} height={44} densities={[1, 2]} format="webp" />
+      </a>
+      <button class="icon-btn" type="button" data-close aria-label="Закрити меню"><Icon name="close" size={24} /></button>
+    </div>
+    <nav aria-label="Розділи сторінки (меню)">
+      <ul class="menu__list">
+        {nav.map((n) => <li><a href={n.href} data-close>{n.label}</a></li>)}
+        <li><FutureLink class="menu__future">Кабінет пацієнта</FutureLink></li>
+      </ul>
+    </nav>
+    <div class="menu__channels">
+      <Button href={contacts.phoneHref} extra={contacts.phoneText}>Подзвонити</Button>
+      <Button href={contacts.telegram} variant="outline" lead="telegram" arrow={false}>Написати в Telegram</Button>
+    </div>
+  </dialog>
+</header>

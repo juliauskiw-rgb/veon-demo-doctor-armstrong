@@ -1,0 +1,28 @@
+---
+// Brand pill button (concept §5.1, §8.6): label + arrow in a circle; secondary = 2px outline.
+import Icon, { type IconName } from "./Icon.astro";
+interface Props {
+  href: string;
+  variant?: "ink" | "mint" | "outline" | "outline-light";
+  size?: "l" | "m";
+  lead?: IconName;
+  arrow?: boolean;
+  extra?: string;
+  class?: string;
+  rec?: string;
+  label?: string;
+}
+const { href, variant = "ink", size = "l", lead, arrow = variant === "ink" || variant === "mint", extra, class: cls, rec, label } = Astro.props;
+const external = /^https?:/.test(href);
+---
+<a
+  class:list={["btn", `btn--${variant}`, `btn--${size}`, { "btn--arrow": arrow }, cls]}
+  href={href}
+  data-rec={rec}
+  aria-label={label}
+  {...(external ? { target: "_blank", rel: "noopener" } : {})}
+>
+  {lead && <Icon name={lead} class="btn__lead" />}
+  <span class="btn__label"><slot />{extra && <span class="btn__extra"> {extra}</span>}</span>
+  {arrow && <span class="btn__circle"><Icon name="arrow" class="btn__arrow" size={18} /></span>}
+</a>

@@ -1,0 +1,48 @@
+---
+import { Picture } from "astro:assets";
+import ohliad from "../assets/img/ohliad.png";
+import zanyattia from "../assets/img/zanyattia.png";
+import plan from "../assets/img/plan.png";
+import Button from "./Button.astro";
+import { contacts } from "../data/clinic";
+
+const steps = [
+  { n: "01", title: "Огляд та діагностика", text: "Фахівець оцінить поставу, рухливість суглобів і м'язову силу, щоб знайти першопричину, а не лише симптоми.", img: ohliad, alt: "Фахівець оглядає коліно пацієнта" },
+  { n: "02", title: "Діагностичне заняття в залі", text: "Функціональні тести: як ви виконуєте вправи, координація, стабільність і підготовка під навантаженням.", img: zanyattia, alt: "Діагностичне заняття з тренеркою в кінезіотерапевтичному залі" },
+  { n: "03", title: "План відновлення", text: "Попередній діагноз, персональна програма реабілітації та індивідуальні рекомендації.", img: plan, alt: "Лікар обговорює з пацієнткою план реабілітації" },
+];
+---
+<section id="pershyj-vizyt" class="visit" aria-labelledby="visit-title" data-rec="R-104,R-107,G-R007">
+  <div class="container">
+    <h2 id="visit-title" class="h2 visit__title">Перший візит: що буде і скільки коштує</h2>
+    <div class="stairs" data-stairs>
+      <svg class="stairs__line" viewBox="0 0 100 300" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <polyline points="0,300 19,170 25,200 44,70 50,100 75,0" vector-effect="non-scaling-stroke" />
+      </svg>
+      <ol class="stairs__list" data-rec="R-306">
+        {steps.map((s, i) => (
+          <li class={`step step--${i + 1}`} data-reveal style={`--reveal-delay:${i * 120}ms`}>
+            <span class="step__marker" aria-hidden="true"></span>
+            <span class="step__num">Крок {s.n}</span>
+            <Picture src={s.img} alt={s.alt} widths={[300, 460, 620]} sizes="(min-width: 1024px) 300px, (min-width: 768px) 45vw, 88vw" formats={["avif", "webp"]} fallbackFormat="jpg" class="step__photo" loading="lazy" />
+            <h3 class="step__title">{s.title}</h3>
+            <p class="step__text">{s.text}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="summit" data-reveal style="--reveal-delay:360ms">
+        <span class="step__marker" aria-hidden="true"></span>
+        <p class="summit__label">Первинна консультація</p>
+        <dl class="prices">
+          <div><dt>фізичного терапевта</dt><dd>710 грн</dd></div>
+          <div><dt>лікаря</dt><dd>1 000 грн</dd></div>
+        </dl>
+        <div class="summit__actions">
+          <Button href={contacts.phoneHref} variant="mint" extra={contacts.phoneText}>Подзвонити</Button>
+          <Button href={contacts.telegram} variant="outline-light" lead="telegram" arrow={false}>Telegram</Button>
+        </div>
+        <p class="promo" data-rec="R-107">Новим пацієнтам −30% на консультацію фізичного терапевта або ортопеда-травматолога, кінезіотерапію і масаж. Діє до 31.12.2026.</p>
+      </div>
+    </div>
+  </div>
+</section>

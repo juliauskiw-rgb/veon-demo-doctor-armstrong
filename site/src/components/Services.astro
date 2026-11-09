@@ -1,0 +1,45 @@
+---
+import FutureLink from "./FutureLink.astro";
+import Icon from "./Icon.astro";
+---
+<section id="posluhy" class="services section" aria-labelledby="services-title" data-rec="R-106,R-112">
+  <div class="container">
+    <div class="services__head">
+      <h2 id="services-title" class="h2">Послуги від 450 грн</h2>
+      <p class="services__note">23 послуги в чотирьох категоріях. Ціни відкриті ще до першого дзвінка.</p>
+    </div>
+    <ul class="mosaic" role="list">
+      <li class="tile tile--main">
+        <h3 class="tile__title"><FutureLink class="tile__link">Реабілітація<span class="tile__icon"><Icon name="arrow" size={18} /></span></FutureLink></h3>
+        <p class="tile__text">Активна кінезіотерапія з фізичним терапевтом: ви виконуєте вправи, фахівець веде і коригує.</p>
+        <ul class="tile__list" role="list">
+          <li>Індивідуальні заняття</li>
+          <li>Групові заняття</li>
+          <li>Парні заняття до двох осіб</li>
+          <li>Діагностичне заняття з оглядом</li>
+          <li>Кінезіотейпування, мануальна терапія, суха голка</li>
+        </ul>
+      </li>
+      <li class="tile tile--consult">
+        <h3 class="tile__title"><FutureLink class="tile__link">Консультації<span class="tile__icon"><Icon name="arrow" size={18} /></span></FutureLink></h3>
+        <p class="tile__text">Ортопед-травматолог, лікар фізичної та реабілітаційної медицини, фізичний терапевт.</p>
+      </li>
+      <li class="tile tile--kids">
+        <h3 class="tile__title"><FutureLink class="tile__link">Діти<span class="tile__icon"><Icon name="arrow" size={18} /></span></FutureLink></h3>
+        <p class="tile__text">Індивідуальні заняття для 6–10 і 11–16 років, парні для 11–16 років, дитячий напрямок з тренером.</p>
+      </li>
+      <li class="tile tile--massage">
+        <h3 class="tile__title"><FutureLink class="tile__link">Масаж<span class="tile__icon"><Icon name="arrow" size={18} /></span></FutureLink></h3>
+        <p class="tile__text">Лікувальний, баночний, антицелюлітний, лімфодренажний.</p>
+      </li>
+      <li class="tile tile--physio">
+        <h3 class="tile__title"><FutureLink class="tile__link">Фізіотерапія<span class="tile__icon"><Icon name="arrow" size={18} /></span></FutureLink></h3>
+        <p class="tile__text">TENS-терапія (нейростимуляція).</p>
+      </li>
+      <li class="tile tile--prices">
+        <p class="tile__title"><FutureLink class="tile__link">Усі ціни<span class="tile__icon"><Icon name="arrow" size={18} /></span></FutureLink></p>
+        <p class="tile__text">Від 450 грн за послугу до абонемента на 36 індивідуальних занять.</p>
+      </li>
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,134 @@
+{
+  "start_url": "http://localhost:4329/",
+  "captured_at": "2026-11-09T10:15:02.074Z",
+  "browser": "156.0.8078.80",
+  "site": {
+    "/robots.txt": {
+      "status": 404,
+      "location": null
+    },
+    "/sitemap.xml": {
+      "status": 404,
+      "location": null
+    },
+    "security_headers": {
+      "strict-transport-security": null,
+      "content-security-policy": null,
+      "x-content-type-options": null,
+      "referrer-policy": null,
+      "x-frame-options": null,
+      "permissions-policy": null
+    },
+    "server": null
+  },
+  "pages": [
+    {
+      "url": "http://localhost:4329/",
+      "slug": "home",
+      "desktop": {
+        "status": 200,
+        "final_url": "http://localhost:4329/",
+        "load_ms_approx": 1650,
+        "console_errors": [],
+        "title": "Фізична реабілітація в Києві біля метро | Doctor Armstrong",
+        "description": "Активна реабілітація з фізичним терапевтом у трьох центрах Києва: Лук'янівська, Іподром, Позняки. Консультація від 710 грн. Запис за телефоном або в Telegram.",
+        "robots_meta": "noindex",
+        "lang": "uk",
+        "canonical": null,
+        "viewport_meta": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "h1": [
+          "Фізична реабілітація в Києві біля метро"
+        ],
+        "headings_count": {
+          "h2": 9,
+          "h3": 11
+        },
+        "og": {
+          "title": true,
+          "image": true
+        },
+        "jsonld_types": [
+          "MedicalBusiness",
+          "MedicalClinic",
+          "MedicalClinic",
+          "MedicalClinic"
+        ],
+        "images": 10,
+        "images_without_alt": 0,
+        "forms": 0,
+        "tel_links": 12,
+        "mailto_links": 2,
+        "messenger_links": 9,
+        "words": 732,
+        "horizontal_overflow_px": 0,
+        "trackers": [],
+        "screens": {
+          "fold": "screens\\home-desktop-fold.png",
+          "full": "screens\\home-desktop-full.png",
+          "sections": [
+            "screens\\home-desktop-s01.png",
+            "screens\\home-desktop-s02.png",
+            "screens\\home-desktop-s03.png",
+            "screens\\home-desktop-s04.png",
+            "screens\\home-desktop-s05.png",
+            "screens\\home-desktop-s06.png"
+          ],
+          "page_height_px": 6676,
+          "full_cropped": false
+        }
+      },
+      "mobile": {
+        "status": 200,
+        "final_url": "http://localhost:4329/",
+        "load_ms_approx": 1634,
+        "console_errors": [],
+        "title": "Фізична реабілітація в Києві біля метро | Doctor Armstrong",
+        "description": "Активна реабілітація з фізичним терапевтом у трьох центрах Києва: Лук'янівська, Іподром, Позняки. Консультація від 710 грн. Запис за телефоном або в Telegram.",
+        "robots_meta": "noindex",
+        "lang": "uk",
+        "canonical": null,
+        "viewport_meta": "width=device-width, initial-scale=1, viewport-fit=cover",
+        "h1": [
+          "Фізична реабілітація в Києві біля метро"
+        ],
+        "headings_count": {
+          "h2": 9,
+          "h3": 11
+        },
+        "og": {
+          "title": true,
+          "image": true
+        },
+        "jsonld_types": [
+          "MedicalBusiness",
+          "MedicalClinic",
+          "MedicalClinic",
+          "MedicalClinic"
+        ],
+        "images": 10,
+        "images_without_alt": 0,
+        "forms": 0,
+        "tel_links": 12,
+        "mailto_links": 2,
+        "messenger_links": 9,
+        "words": 710,
+        "horizontal_overflow_px": 0,
+        "screens": {
+          "fold": "screens\\home-mobile-fold.png",
+          "full": "screens\\home-mobile-full.png",
+          "sections": [
+            "screens\\home-mobile-s01.png",
+            "screens\\home-mobile-s02.png",
+            "screens\\home-mobile-s03.png",
+            "screens\\home-mobile-s04.png",
+            "screens\\home-mobile-s05.png",
+            "screens\\home-mobile-s06.png"
+          ],
+          "page_height_px": 10459,
+          "full_cropped": true
+        }
+      }
+    }
+  ],
+  "errors": []
+}

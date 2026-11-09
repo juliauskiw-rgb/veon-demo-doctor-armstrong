@@ -1,0 +1,46 @@
+---
+import { Image } from "astro:assets";
+import logo from "../assets/img/logo.png";
+import FutureLink from "./FutureLink.astro";
+import Icon from "./Icon.astro";
+import { contacts } from "../data/clinic";
+const patients = ["Лікуємо", "Послуги", "Ціни", "Акції", "Команда", "Про нас"];
+const partners = ["Академія масажу", "Франшиза"];
+---
+<footer class="site-footer" data-rec="R-103">
+  <div class="container site-footer__grid">
+    <div class="site-footer__brand">
+      <a class="site-header__logo" href="#top" aria-label="Doctor Armstrong — на початок сторінки">
+        <Image src={logo} alt="Doctor Armstrong" width={136} height={52} densities={[1, 2]} format="webp" loading="lazy" />
+      </a>
+      <p>Фізична реабілітація в трьох центрах Києва біля метро Лук'янівська, Іподром і Позняки.</p>
+    </div>
+    <nav class="site-footer__col site-footer__col--a" aria-label="Пацієнтам">
+      <h2 class="site-footer__head">Пацієнтам</h2>
+      <ul role="list">{patients.map((p) => <li><FutureLink>{p}</FutureLink></li>)}</ul>
+    </nav>
+    <nav class="site-footer__col site-footer__col--b" aria-label="Фахівцям і партнерам">
+      <h2 class="site-footer__head">Фахівцям і партнерам</h2>
+      <ul role="list">{partners.map((p) => <li><FutureLink>{p}</FutureLink></li>)}</ul>
+    </nav>
+    <div class="site-footer__col site-footer__col--c">
+      <h2 class="site-footer__head">Зв'язок</h2>
+      <ul role="list" class="site-footer__contacts">
+        <li><a href={contacts.phoneHref}>{contacts.phoneText}</a></li>
+        <li><a href={`mailto:${contacts.email}`}>{contacts.email}</a></li>
+        <li><a href={contacts.telegram} target="_blank" rel="noopener">Telegram-бот для запису</a></li>
+      </ul>
+      <ul role="list" class="site-footer__social" data-rec="S-R010">
+        <li><a class="icon-btn icon-btn--ring" href={contacts.instagram} target="_blank" rel="noopener" aria-label="Instagram Doctor Armstrong"><Icon name="instagram" /></a></li>
+        <li><a class="icon-btn icon-btn--ring" href={contacts.facebook} target="_blank" rel="noopener" aria-label="Facebook Doctor Armstrong"><Icon name="facebook" /></a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container site-footer__legal">
+    <p>© 2026 Doctor Armstrong. ТОВ «Доктор Армстронг», ЄДРПОУ 45844990. Ліцензія МОЗ України, наказ № 1359 від 29.08.2025.</p>
+    <ul role="list">
+      <li><FutureLink>Політика конфіденційності</FutureLink></li>
+      <li><FutureLink>Публічна оферта</FutureLink></li>
+    </ul>
+  </div>
+</footer>

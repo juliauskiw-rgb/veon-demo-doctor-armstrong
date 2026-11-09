@@ -1,0 +1,35 @@
+---
+import { Picture } from "astro:assets";
+import lukianivska from "../assets/img/centr-lukianivska.png";
+import ipodrom from "../assets/img/centr-ipodrom.png";
+import pozniaky from "../assets/img/centr-pozniaky.png";
+import Button from "./Button.astro";
+import FutureLink from "./FutureLink.astro";
+import { centres, contacts, hours } from "../data/clinic";
+const photos: Record<string, ImageMetadata> = { lukianivska, ipodrom, pozniaky };
+---
+<section id="centry" class="centres section" aria-labelledby="centres-title" data-rec="R-105">
+  <div class="container">
+    <h2 id="centres-title" class="h2">Три центри біля метро</h2>
+    <ol class="centres__list" role="list">
+      {centres.map((c) => (
+        <li class="centre">
+          <span class="centre__stop" aria-hidden="true"></span>
+          <h3 class="centre__metro"><span class="visually-hidden">Метро </span>{c.metro}</h3>
+          <p class="centre__district">{c.district}</p>
+          <Picture src={photos[c.id]} alt={c.photoAlt} widths={[300, 430]} sizes="(min-width: 1024px) 400px, 80vw" formats={["avif", "webp"]} fallbackFormat="jpg" class="centre__photo" loading="lazy" />
+          <p class="centre__address">Київ, {c.street}</p>
+          <p class="centre__hours">{hours.weekdays}<br />{hours.saturday}<br />{hours.sunday}</p>
+          <p class="centre__rating"><span class="centre__score">{c.rating}</span> на Google Maps, {c.reviews}</p>
+          <div class="centre__actions">
+            <Button href={c.map} variant="outline" size="m" lead="route" arrow={false} label={`Маршрут до центру біля метро ${c.metro} (Google Maps)`}>Маршрут</Button>
+            <Button href={contacts.phoneHref} size="m" label={`Подзвонити: ${contacts.phoneText}`}>Подзвонити</Button>
+            <a class="icon-btn icon-btn--ring" href={contacts.telegram} target="_blank" rel="noopener" aria-label="Записатися в Telegram"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 2 11 13" /><path d="M22 2 15 22l-4-9-9-4 20-7z" /></svg></a>
+          </div>
+          <FutureLink class="text-link centre__page">Сторінка центру</FutureLink>
+        </li>
+      ))}
+    </ol>
+    <p class="centres__source">Рейтинги Google Maps — за даними сайту клініки на 09.11.2026. Один номер для всіх центрів: <a href={contacts.phoneHref}>{contacts.phoneText}</a>.</p>
+  </div>
+</section>

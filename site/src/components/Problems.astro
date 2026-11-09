@@ -1,0 +1,24 @@
+---
+import FutureLink from "./FutureLink.astro";
+import Icon from "./Icon.astro";
+import { conditions } from "../data/clinic";
+---
+<section id="problemy" class="problems section" aria-labelledby="problemy-title" data-rec="R-106">
+  <div class="container problems__grid">
+    <div class="problems__head">
+      <h2 id="problemy-title" class="h2">З чим до нас звертаються</h2>
+      <p class="problems__note">Сім напрямів і 27 станів: від болю в спині до відновлення після операцій.</p>
+      <FutureLink class="text-link">Усі 27 станів</FutureLink>
+    </div>
+    <ul class="pills" role="list">
+      {conditions.map((c) => (
+        <li>
+          <FutureLink class="pill">
+            <span class="pill__text">{c}</span>
+            <span class="pill__icon"><Icon name="arrow" size={16} /></span>
+          </FutureLink>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>

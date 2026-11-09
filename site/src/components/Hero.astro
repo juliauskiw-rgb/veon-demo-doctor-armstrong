@@ -1,0 +1,39 @@
+---
+import { Picture } from "astro:assets";
+import zal from "../assets/img/zal-trener.png";
+import Button from "./Button.astro";
+import { contacts, centres } from "../data/clinic";
+---
+<section id="top" class="hero" aria-labelledby="hero-title" data-rec="R-101,R-112,G-R006,MT-R004">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <h1 id="hero-title" class="hero__title" data-rec="R-201">Фізична реабілітація в Києві біля метро</h1>
+      <p class="hero__lead">Активні заняття з фізичним терапевтом: не більше двох пацієнтів на одного фахівця, ліцензія МОЗ.</p>
+      <div class="hero__actions" data-hero-actions>
+        <Button href={contacts.phoneHref} extra={contacts.phoneText} class="hero__call">Подзвонити</Button>
+        <Button href={contacts.telegram} variant="outline" lead="telegram" arrow={false}>Написати в Telegram</Button>
+      </div>
+      <nav class="metro" aria-label="Три центри біля метро">
+        <ol class="metro__line">
+          {centres.map((c) => <li class="metro__stop"><a href="#centry">{c.metro}</a></li>)}
+        </ol>
+      </nav>
+    </div>
+    <div class="hero__art" data-rec="R-301,R-306">
+      <svg class="hero__arrow" viewBox="0 0 700 780" aria-hidden="true" focusable="false">
+        <polyline class="hero__arrow-line" points="0,730 160,350 262,452 430,140 512,222 600,40" />
+        <polygon class="hero__arrow-head" points="648,-59 654,66 546,14" />
+      </svg>
+      <Picture
+        src={zal}
+        alt="Тренерка з фізичної реабілітації показує пацієнту вправу в залі Doctor Armstrong"
+        widths={[360, 520, 680]}
+        sizes="(min-width: 1024px) 360px, (min-width: 768px) 420px, 78vw"
+        formats={["avif", "webp"]} fallbackFormat="jpg"
+        class="hero__photo"
+        loading="eager"
+        fetchpriority="high"
+      />
+    </div>
+  </div>
+</section>

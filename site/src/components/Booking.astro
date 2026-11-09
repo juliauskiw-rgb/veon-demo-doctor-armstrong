@@ -1,0 +1,22 @@
+---
+import Button from "./Button.astro";
+import Icon from "./Icon.astro";
+import { contacts, hours } from "../data/clinic";
+---
+<section id="zapys" class="booking" aria-labelledby="booking-title" data-rec="R-102">
+  <div class="container booking__grid">
+    <h2 id="booking-title" class="h2 booking__title">Запишіться на перший візит</h2>
+    <div class="booking__call">
+      <svg class="booking__arrow" viewBox="0 0 220 200" aria-hidden="true" focusable="false">
+        <polyline points="10,195 80,95 120,140 190,40" />
+        <polygon points="214,6 210,72 160,30" />
+      </svg>
+      <a class="booking__phone" href={contacts.phoneHref} aria-label={`Подзвонити: ${contacts.phoneText}`}>{contacts.phoneText}</a>
+    </div>
+    <div class="booking__side">
+      <Button href={contacts.telegram} variant="ink" lead="telegram">Записатися в Telegram</Button>
+      <p class="booking__hours">{hours.weekdays}, {hours.saturday}, неділя — вихідний. Один номер для всіх трьох центрів.</p>
+      <a class="booking__mail" href={`mailto:${contacts.email}`}><Icon name="mail" size={20} />{contacts.email}</a>
+    </div>
+  </div>
+</section>
